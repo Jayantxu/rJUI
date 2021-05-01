@@ -49,6 +49,7 @@
     "include": [
       "**/*.ts",
       "**/*.tsx",
+      "*.config.js",
       "components/**/*.tsx"
     ]
 }
