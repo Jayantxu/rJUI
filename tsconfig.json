@@ -1,0 +1,54 @@
+{
+    "compilerOptions": {
+      // 指定基本目录以解析非相对模块名称
+      "baseUrl": ".",
+      "paths": {
+        "rjui": [
+          "components/index.tsx"
+        ]
+      },
+      // 在进行类型检查时，请考虑null和undefined
+      "strictNullChecks": true,
+      // TypeScript如何从给定的模块说明符中查找文件
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      // 生成什么JSX代码
+      "jsx": "preserve",
+      "noUnusedParameters": true,
+      // 未读取局部变量时启用错误报告
+      "noUnusedLocals": true,
+      // 为隐式任何类型的表达式和声明启用错误报告
+      "noImplicitAny": true,
+      // 设置JavaScript语言版本
+      "target": "es6",
+      // 目标运行时环境
+      "lib": [
+        "dom",
+        "es6"
+      ],
+      "skipLibCheck": true,
+      "allowJs": true,
+      "strict": false,
+      // Ensure that casing is correct in imports.
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,
+      // 指定生成什么模块代码
+      "module": "esnext",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "typeRoots": [
+        "node_modules/@types",
+        "./typings"
+      ]
+    },
+    "exclude": [
+      "node_modules",
+      "dist"
+    ],
+    "include": [
+      "**/*.ts",
+      "**/*.tsx",
+      "components/**/*.tsx"
+    ]
+}

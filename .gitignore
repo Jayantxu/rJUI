@@ -1,0 +1,16 @@
+#See https://help.github.com/articles/ignoring-files/
+/node_modules
+
+/coverage
+
+/.next/
+/out/
+
+/dist
+
+.DS_Store
+.env*
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
