@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import RJUIHeader from './RJUIheader';
 import { useConfigs } from 'lib/data/context';
 import MenuAside from './side/index';
+import { MobileMenuAside } from './side/RJUIMobileAside';
 
 interface PAGETITLE {
     title: string
@@ -13,15 +14,15 @@ interface LayerMeta {
 }
 
 export const RJUILayer: React.FC<LayerMeta> = ({ children, pageTitle }: LayerMeta) => {
-    const { headerTabFixed } = useConfigs();
+    const { headerTabFixed, isMobileType } = useConfigs();
     return (
         <>
             <section className="rjui-layer">
                 <RJUIHeader pageTitle={pageTitle} />
-                <aside className="rjui-side">
-                    <MenuAside />
+                <aside className={`${isMobileType ? 'rjui-side' : '' }`}>
+                    { isMobileType ? <MenuAside /> : <MobileMenuAside /> }
                 </aside>
-                <div className="rjui-i-main-distance"></div>
+                { isMobileType && <div className="rjui-i-main-distance"></div>}
                 <div className="content">{ children }</div>
             </section>
             <style jsx>{`
@@ -36,7 +37,6 @@ export const RJUILayer: React.FC<LayerMeta> = ({ children, pageTitle }: LayerMet
                 }
                 .rjui-side {
                     width: 200px;
-                    // height: calc(100% - ${headerTabFixed ? '6rem' : '8rem'});
                     height: calc(100% - 8rem);
                     margin-right: 20px;
                     flex-shrink: 0;

@@ -9,8 +9,9 @@ const menuArr: Array<MenuArrInfo> = [
         name: 'guide',
         url: '/guide',
         children: [
-            { name: 'myself', url: '/guide/mmyself', menuName: 'myself', children: [] },
-            { name: 'myself1', url: '/guide/mmyself1', menuName: 'myself1', children: [] },
+            { name: 'RJUI', url: '', menuName: 'RJUI 介绍', children: [
+                { name: '介绍', url: '/guide/introduction', menuName: '介绍', children: [] }
+            ] },
         ],
         menuName: 'RJUI指南'
     },
@@ -19,8 +20,8 @@ const menuArr: Array<MenuArrInfo> = [
         url: '/components',
         children: [
             { name: '通用', url: '', menuName: '通用', children: [
-                { name: '文本', url: '/components/text', menuName: 'Text 文本', children: [] },
                 { name: '按钮', url: '/components/button', menuName: 'Button 按钮', children: [] },
+                { name: '输入框', url: '/components/input', menuName: 'Input 输入框', children: [] },
             ] 
             },
             { name: '布局', url: '', menuName: '布局', children: [] },

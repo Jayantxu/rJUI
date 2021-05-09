@@ -22,8 +22,12 @@ const MenuAside: React.FC<unknown> = () => {
         if(!menu.url) return;
         Router.push(menu.url);
     };
-
-
+    const judgeActiveMenu = (menuUrl: string): boolean => {
+        if(pathname === menuUrl) {
+            return true;
+        }
+        return false;
+    };
     return (
         <>
             <div className="rjui-aside-menu">
@@ -32,7 +36,10 @@ const MenuAside: React.FC<unknown> = () => {
                         <span className="rjui-menu-unit-title">{menuUnit.name}</span>
                         <div className="rjui-menu-unit-content">
                             {menuUnit.children.map((menu, mjdx) => (
-                                <div onClick={() => {menuUnitClick(menu);}} key={menu.menuName + mjdx} className="rjui-menu-unit rjui-hover">{menu.menuName}</div>
+                                <div onClick={() => {menuUnitClick(menu);}} key={menu.menuName + mjdx} 
+                                    className={`rjui-menu-unit rjui-hover ${judgeActiveMenu(menu.url) ? 'is-active-menu': '' } `}>
+                                    {menu.menuName}
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -64,6 +71,9 @@ const MenuAside: React.FC<unknown> = () => {
                     color: #314659;
                 }
                 .rjui-menu-unit:hover {
+                    color: #1890ff;
+                }
+                .is-active-menu {
                     color: #1890ff;
                 }
             `}</style>

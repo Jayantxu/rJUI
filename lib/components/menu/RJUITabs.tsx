@@ -25,7 +25,7 @@ const TabSticker = () => {
                 <div className="rjui-tabs-inner">
                     <div className="rjui-tabs-container">
                         {tabInfo.map((tabItem) => (
-                            <div className={`${nowMenuUrl === tabItem.name ? 'rjui-menu-active' : ''} rjui-tabs-unit rjui-hover`} key={tabItem.name} 
+                            <div className={`${nowMenuUrl === tabItem.url ? 'rjui-menu-active' : ''} rjui-tabs-unit rjui-hover`} key={tabItem.name} 
                                 onClick={() => menuUnitClickHandler(tabItem)}>{tabItem.menuName}</div>
                         ))}
                     </div>

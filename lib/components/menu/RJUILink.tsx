@@ -1,4 +1,5 @@
 import React from 'react';
+import { mobileSize } from '../../data/mediaJson';
 
 const Menu: React.FC<unknown> = () => {
     const redirectGithub = () => {
@@ -13,9 +14,10 @@ const Menu: React.FC<unknown> = () => {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                max-width: 1100px; 
+                width: 70rem;
                 height 60px;
                 margin: 0 auto;
+                position: relative;
             }
             .front-title {
                 font-size: 1.8rem;
@@ -28,6 +30,24 @@ const Menu: React.FC<unknown> = () => {
                 border-radius: 3px;
                 padding: 0.1rem 0.3rem;
             }
+            @media only screen and (max-width: 1150px) {
+                .rjui-link-header {
+                    width: 100%;
+                    justify-content: space-around;
+                }
+            }
+            @media only screen and (max-width: ${mobileSize.mediaBreak}) {
+                .rjui-link-header {
+                    width: 100%;
+                    justify-content: center;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0 0 15px 0;
+                }
+                .rjui-controls {
+                    position: absolute;
+                    right: 0.7rem;
+                }
+            }
+
         `}</style>
     </div>
   );
