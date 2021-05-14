@@ -63,6 +63,7 @@ const mobileAside: React.FC = () => {
                     left: 0;
                     background: ${mobileMenuExpand ? '' : '#b3b3b363'};
                     overflow: hidden;
+                    z-index: 999;
                 }
                 .rjui-mobile-aside-tabs {
                     width: ${mobileMenuExpand ? '0' : '61vw'};

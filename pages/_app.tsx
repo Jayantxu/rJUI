@@ -6,6 +6,7 @@ import { AppProps } from 'next/app';
 import Menu from 'lib/components/menu/index';
 import { ConfigProvider } from 'lib/data/provider';
 import 'lib/globalStyle/globalStyle.sass'; // global Style
+import 'highlight.js/styles/docco.css';
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 	return (
 		<>
@@ -23,4 +24,3 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 	);
 };
 export default Application;
-  

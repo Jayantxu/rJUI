@@ -4,7 +4,7 @@
       "baseUrl": ".",
       "paths": {
         "rjui": [
-          "components/index.tsx"
+          "components/index.ts"
         ]
       },
       // 在进行类型检查时，请考虑null和undefined

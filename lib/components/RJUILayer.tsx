@@ -23,7 +23,7 @@ export const RJUILayer: React.FC<LayerMeta> = ({ children, pageTitle }: LayerMet
                     { isMobileType ? <MenuAside /> : <MobileMenuAside /> }
                 </aside>
                 { isMobileType && <div className="rjui-i-main-distance"></div>}
-                <div className="content">{ children }</div>
+                <div className="rjui-main-content">{ children }</div>
             </section>
             <style jsx>{`
                 .rjui-layer {
@@ -48,7 +48,6 @@ export const RJUILayer: React.FC<LayerMeta> = ({ children, pageTitle }: LayerMet
                     transition: top 0.25s;
                     z-index: 100;
                     overflow: auto;
-                    
                 }
                 .rjui-side::-webkit-scrollbar {
                     width: 0;
@@ -58,6 +57,9 @@ export const RJUILayer: React.FC<LayerMeta> = ({ children, pageTitle }: LayerMet
                     width: 220px;
                     flex-shrink: 0;
                     height: 100vh;
+                }
+                .rjui-main-content {
+                    flex-grow: 1;
                 }
             `}</style>
         </>

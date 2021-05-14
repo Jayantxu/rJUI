@@ -1,16 +1,24 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import RJUITabs from './RJUITabs';
 import { useConfigs } from '../../data/context';
 import { mobileSize } from '../../data/mediaJson';
 
 const MenuSticker = () => {
     const [fixed, setFixed] = useState(false);
+    const fixRef = useRef(false);
     const { isMobileType, updateHeaderTabFixed, updateIsMobileType } = useConfigs();
-
+    let scrollTimer!: number;
     useEffect(() => {
         const screenScrollHandler = () => {
-            const shouldFixed = document.documentElement.scrollTop > 60;
-            setFixed(shouldFixed);
+            if(scrollTimer) {
+                clearTimeout(scrollTimer);
+            }
+            scrollTimer = window.setTimeout(() => {
+                const shouldFixed = (document.documentElement.scrollTop >= 60);
+                if(fixRef.current === shouldFixed) return;
+                setFixed(shouldFixed);
+                fixRef.current = shouldFixed;
+            }, 20);
         };
         document.addEventListener('scroll', screenScrollHandler);
         return () => {

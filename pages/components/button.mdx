@@ -1,4 +1,5 @@
-import RJUILayout from 'lib/components/RJUILayer';
+import { RJUILayout, Playground } from 'lib/components';
+import { Button } from 'components';
 
 export const pageTitle = {
     title: "Button MDX",
@@ -7,6 +8,19 @@ export const pageTitle = {
 ## Button.mdx
 
 THIS IS Button.mdx
+
+
+<Playground 
+    boxTitle="按钮类型"
+    boxDesc={`我是很多字的描述啊啊啊啊啊啊啊啊啊啊啊*斜体*，**加粗**，@代码@，文字间隔啊描边，我可能很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+    很长很长很长很长，并且**粗体**，有很多很多很多很多很多`}
+    relyCom={{ Button }}
+    code={`
+<>
+    <Button></Button>
+</>
+    `}
+/>
 
 ## Button.mdx
 
