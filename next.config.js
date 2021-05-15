@@ -27,6 +27,14 @@ const nextConfig = {
                 destination: '/guide/introduction'
             }
         ];
+    },
+
+    webpack: function(config) {
+        config.module.rules.push({
+            test: /\.svg$/,
+            loader: 'svg-sprite-loader'
+        });
+        return config;
     }
 };
 

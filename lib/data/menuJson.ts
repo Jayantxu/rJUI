@@ -20,6 +20,7 @@ const menuArr: Array<MenuArrInfo> = [
         url: '/components',
         children: [
             { name: '通用', url: '', menuName: '通用', children: [
+                { name: '图标', url: '/components/icon', menuName: 'Icon 图标', children: [] },
                 { name: '按钮', url: '/components/button', menuName: 'Button 按钮', children: [] },
                 { name: '输入框', url: '/components/input', menuName: 'Input 输入框', children: [] },
             ] 

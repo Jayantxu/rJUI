@@ -1,0 +1,22 @@
+import { RJUILayout, Playground } from 'lib/components';
+import { Icon } from 'components';
+export const pageTitle = {
+    title: "Icon MDX"
+}
+
+## Icon.md
+
+
+<Playground
+    boxTitle="图标"
+    boxDesc={`图标描述哈哈哈哈`}
+    relyCom={{ Icon }}
+    code={`
+<>
+    <Icon></Icon>
+</>
+    `}
+/>
+
+
+export default ({ children }) => <RJUILayout pageTitle={pageTitle}>{children}</RJUILayout>
