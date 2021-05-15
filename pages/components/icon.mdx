@@ -1,5 +1,6 @@
 import { RJUILayout, Playground } from 'lib/components';
 import { Icon } from 'components';
+import { Pasteicon } from 'components/icon'
 export const pageTitle = {
     title: "Icon MDX"
 }
@@ -8,15 +9,21 @@ export const pageTitle = {
 
 
 <Playground
-    boxTitle="图标"
-    boxDesc={`图标描述哈哈哈哈`}
-    relyCom={{ Icon }}
+    boxTitle="数据图表类图标"
+    boxDesc={`用于描述图标分析类型，折线图，饼状图等`}
+    relyCom={{ Icon, Pasteicon }}
     code={`
 <>
-    <Icon></Icon>
+    <Pasteicon> 
+        <Icon name="user" className="my-selft-class is-red"></Icon>
+        <Icon name="good" className="my-selft-class is-red"></Icon>
+        <Icon name="good" className="my-selft-class is-red" style={{fontSize: '20px', color: 'red'}}></Icon>
+        <Icon name="good" className="my-selft-class is-red" width="20px" height="20px"></Icon>
+        <Icon name="good" rotate="180"></Icon>
+        <Icon name="good" spin></Icon>
+    </Pasteicon>
 </>
     `}
 />
-
 
 export default ({ children }) => <RJUILayout pageTitle={pageTitle}>{children}</RJUILayout>

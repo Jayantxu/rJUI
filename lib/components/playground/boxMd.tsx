@@ -9,7 +9,6 @@ marked.setOptions({
 const Boxmd: React.FC<{code: string}> = ({ code }) => {
     const [ descText, setDescText ] = useState('');
     useEffect(() => {
-        console.log(code);
         let willChangeDescText = code.trim().replace(/@/g, '`');
         willChangeDescText = marked(willChangeDescText);
         setDescText(willChangeDescText);
