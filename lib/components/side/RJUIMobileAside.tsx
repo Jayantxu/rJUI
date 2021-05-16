@@ -54,14 +54,27 @@ const mobileAside: React.FC = () => {
                     </div>
                 </>
             </div>
+            <style global jsx>{`
+                @keyframes addBackground {
+                    0% {
+                        background: #b3b3b363;
+                    }
+                    100% {
+                        background: #b3b3b363;
+                    }
+                }
+                .rjui-mobile-aside {
+                    animation: ${mobileMenuExpand ? 'unset' : 'addBackground 0.1s infinite 0.4s'};
+                }
+            `}</style>
             <style jsx>{`
                 .rjui-mobile-aside {
                     width: 100vw;
                     height: 100vh;
                     position: fixed;
                     top: 0;
-                    left: 0;
-                    background: ${mobileMenuExpand ? '' : '#b3b3b363'};
+                    left: ${mobileMenuExpand ? '-100vw' : '0'};
+                    transition: left 0.5s;
                     overflow: hidden;
                     z-index: 999;
                 }
@@ -74,7 +87,7 @@ const mobileAside: React.FC = () => {
                     transition: width 0.5s;
                 }
                 .rjui-mobile-aside-cort {
-                    position: absolute;
+                    position:${mobileMenuExpand ? 'fixed' : 'absolute'};
                     width: 2.5rem;
                     height: 2.51rem;
                     background: #fff;
@@ -133,6 +146,7 @@ const mobileAside: React.FC = () => {
                     background: #1890ff;
                     left: 0;
                 }
+                
             `}</style>
         </div>
     );

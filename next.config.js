@@ -1,4 +1,4 @@
-const rehypePrism = require('@mapbox/rehype-prism');
+const rehypePrism = require('rehype-highlight'); // # needThemeCss
 const withMDX = require('@next/mdx')({
     extension: /\.(md|mdx)?$/,
     options: {

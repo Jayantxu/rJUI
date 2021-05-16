@@ -42,7 +42,7 @@ const Playground: React.FC<PlaygroundProps> = React.memo(
                 <style jsx>{`
                     .rjui-playground {
                         width: 98%;
-                        margin: 0 auto;
+                        margin: 2rem auto;
                         border-radius: 4px;
                         border: 1px solid #e9e9e9;
                         display: flex;

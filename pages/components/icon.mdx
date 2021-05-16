@@ -5,25 +5,160 @@ export const pageTitle = {
     title: "Icon MDX"
 }
 
-## Icon.md
+#### Icon 图标
 
+`svg`矢量图形，使用`Icon`图标组件，支持大小等属性自定义设置：
+
+```js
+import { Icon } from 'rJUI';
+const a = () => {
+    console.log('sss');
+}
+```
+
+#### 介绍
 
 <Playground
-    boxTitle="数据图表类图标"
-    boxDesc={`用于描述图标分析类型，折线图，饼状图等`}
+    boxTitle="基本使用"
+    boxDesc={`rJUI的基本使用方法，当前示例点击可复制@Icon@代码`}
     relyCom={{ Icon, Pasteicon }}
     code={`
-<>
-    <Pasteicon> 
-        <Icon name="user" className="my-selft-class is-red"></Icon>
-        <Icon name="good" className="my-selft-class is-red"></Icon>
-        <Icon name="good" className="my-selft-class is-red" style={{fontSize: '20px', color: 'red'}}></Icon>
-        <Icon name="good" className="my-selft-class is-red" width="20px" height="20px"></Icon>
-        <Icon name="good" rotate="180"></Icon>
-        <Icon name="good" spin></Icon>
-    </Pasteicon>
-</>
+<Pasteicon> 
+    <Icon name="rJUI" className="" size="30"></Icon>
+</Pasteicon>
     `}
 />
+
+<Playground
+    boxTitle="不同大小"
+    boxDesc={`@Icon@图标支持大小定义，外部传入@style@以及@size@均可影响@Icon@大小，@size@大小定义优先级高于@style@`}
+    relyCom={{ Icon, Pasteicon }}
+    code={`
+<Pasteicon> 
+    <Icon name="github" size="15"></Icon>
+    <Icon name="github" size="20"></Icon>
+    <Icon name="github" style={{fontSize: '30px'}}></Icon>
+</Pasteicon>
+    `}
+/>
+
+<Playground
+    boxTitle="旋转角度与旋转动画"
+    boxDesc={`@Icon@图标支持图标*旋转角度*与*旋转动画*设定，使用@rotate@设定图标旋转角度，@spin@设定图标旋转动画`}
+    relyCom={{ Icon, Pasteicon }}
+    code={`
+<Pasteicon> 
+    <Icon name="github"></Icon>
+    <Icon name="github" rotate="90"></Icon>
+    <Icon name="github" spin></Icon>
+</Pasteicon>
+    `}
+/>
+
+<Playground
+    boxTitle="颜色定义"
+    boxDesc={`@Icon@图标支持颜色覆盖，@color@中设定优先级高于@style@`}
+    relyCom={{ Icon, Pasteicon }}
+    code={`
+<Pasteicon> 
+    <Icon name="github" color="red"></Icon>
+    <Icon name="github" style={{ color: "blue" }}></Icon>
+    <Icon name="github" color="grey" style={{ color: "aliceblue" }}></Icon>
+</Pasteicon>
+    `}
+/>
+
+#### 所有图标
+
+<Playground
+    boxTitle="方向性图标"
+    boxDesc={`方向指示性图标`}
+    relyCom={{ Icon, Pasteicon }}
+    code={`
+<Pasteicon> 
+    <Icon name="backWard"></Icon>
+    <Icon name="fastWard"></Icon>
+    <Icon name="backWardStep"></Icon>
+    <Icon name="nextWardStep"></Icon>
+    <Icon name="swapLeft"></Icon>
+    <Icon name="swapRight"></Icon>
+    <Icon name="changeArrow"></Icon>
+    <Icon name="upEntity"></Icon>
+    <Icon name="downEntity"></Icon>
+    <Icon name="upLine"></Icon>
+    <Icon name="downLine"></Icon>
+    <Icon name="leftLine"></Icon>
+    <Icon name="rightLine"></Icon>
+    <Icon name="upLoad"></Icon>
+    <Icon name="downLoad"></Icon>
+    <Icon name="foldLeftLine"></Icon>
+    <Icon name="foldRightLine"></Icon>
+    <Icon name="goPlayLine"></Icon>
+    <Icon name="stopPlayLine"></Icon>
+    <Icon name="growOut"></Icon>
+    <Icon name="shrinkOute"></Icon>
+    <Icon name="growOutMore"></Icon>
+    <Icon name="shrinkOutMore"></Icon>
+</Pasteicon>
+    `}
+/>
+
+<Playground
+    boxTitle="数据类图标"
+    boxDesc={`数据类图标，可用于各类图表，*折线图*、*饼图*等`}
+    relyCom={{ Icon, Pasteicon }}
+    code={`
+<Pasteicon> 
+    <Icon name="riseTrend"></Icon>
+    <Icon name="declineTrend"></Icon>
+    <Icon name="radarCharts"></Icon>
+    <Icon name="areaCharts"></Icon>
+    <Icon name="pieCharts"></Icon>
+    <Icon name="barCharts"></Icon>
+    <Icon name="lineCharts"></Icon>
+    <Icon name="gridCharts"></Icon>
+</Pasteicon>
+    `}
+/>
+
+<Playground
+    boxTitle="编辑类图标"
+    boxDesc={`数据编辑类图标，可以用*增*、*删*、*查*、*改*等多重业务场景`}
+    relyCom={{ Icon, Pasteicon }}
+    code={`
+<Pasteicon> 
+    <Icon name="alignCenter"></Icon>
+    <Icon name="alignLeft"></Icon>
+    <Icon name="alignRight"></Icon>
+    <Icon name="boldFont"></Icon>
+    <Icon name="italicFont"></Icon>
+    <Icon name="underLineFont"></Icon>
+    <Icon name="copyIcon"></Icon>
+    <Icon name="pasteIcon"></Icon>
+    <Icon name="cutIcon"></Icon>
+    <Icon name="queryIcon"></Icon>
+    <Icon name="editIcon"></Icon>
+    <Icon name="deleteIcon"></Icon>
+    <Icon name="zoomIn"></Icon>
+    <Icon name="zoomOut"></Icon>
+    <Icon name="orderSort"></Icon>
+</Pasteicon>
+    `}
+/>
+
+
+#### API
+
+| 属性      | 描述      | 类型              | 默认  |
+| --------- | --------  | ---------------  | ----  |
+| className | 原生属性  | `string`          | -     |
+| name      | 图标名称  | `number`          | -     |
+| size      | 图标大小  | `number`、`string`| -     |
+| rotate    | 旋转角度  | `number`          | 0     |
+| spin      | 旋转动画  | `boolean`         | false |
+| style     | 图标样式  | `CSSProperties`   | -     |
+| width     | 图标宽度  | `number`、`string`| -     |
+| height    | 图标高度  | `number`、`string`| -     |
+| color     | 图标颜色  | `string`          | -     |
 
 export default ({ children }) => <RJUILayout pageTitle={pageTitle}>{children}</RJUILayout>

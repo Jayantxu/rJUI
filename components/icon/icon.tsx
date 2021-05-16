@@ -3,33 +3,45 @@ import React from 'react';
 const iconfiles = require.context("assets/svg/", true, /\.svg$/);
 iconfiles.keys().forEach(iconfiles);
 
-export interface IconProps {
+export interface IconProps extends React.SVGAttributes<SVGElement> {
     className: string
     name: string
-    size: string
+    size: string | number
     rotate: number
     spin: boolean
     style: React.CSSProperties
     width: string | number,
     height: string | number,
+    color: string
 }
 
 const Icon: React.FC<IconProps> = (props) => {
+    const getStyle = (styleProps: IconProps) => {
+        const style: React.CSSProperties = {};
+        styleProps.rotate && (style.transform = `rotate(${styleProps.rotate}deg)`);
+        styleProps.size && (style.fontSize = `${styleProps.size}px`);
+        styleProps.color && (style.color = `${styleProps.color}`);
+        return style;
+    };
+
     return (
         <span role="img" aria-label={props.name} 
-            className={`rjui-icon ${props.className} ${props.spin ? 'rjui-icon-spin' : ''}`}
+            className={`rjui-icon  ${props.spin ? 'rjui-icon-spin' : ''}`}
             style={props.style}
         >
             <svg width={props.width ? props.width : "1em"} 
                 height={props.height ? props.height : "1em"} 
                 fill="currentColor"
-                style={{ transform: `rotate(${props.rotate}deg)` }}
+                style={ getStyle(props) }
+                onClick={ props.onClick }
+                onMouseEnter = { props.onMouseEnter }
+                onMouseLeave = { props.onMouseLeave }
                 >
                 <use xlinkHref={`#${props.name}`}></use>
             </svg>
             <style jsx>{`
                 .rjui-icon {
-                    font-size: 36px;
+                    font-size: 30px;
                     margin: 12px 0 8px;
                     color: inherit;
                     display: inline-block;
@@ -39,6 +51,7 @@ const Icon: React.FC<IconProps> = (props) => {
                     text-rendering: optimizeLegibility;
                     text-transform: none;
                     vertical-align: -.125em;
+                    color: #314659;
                 }
                 .rjui-icon-spin {
                     animation: iconSpin 1.5s infinite linear
@@ -55,11 +68,12 @@ const Icon: React.FC<IconProps> = (props) => {
 Icon.defaultProps = {
     className: '',
     name: '',
-    size: 'default',
+    size: '',
     rotate: 0,
     spin: false,
     style: {},
     width: '',
     height: '',
+    color: '',
 };
 export default React.memo(Icon);

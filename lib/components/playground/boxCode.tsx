@@ -5,7 +5,7 @@ interface CodeProps {
     padStatus: number
 }
 const boxCode: React.FC<CodeProps> = ({ code, padStatus }) => {
-    const [ codeShow, setCodeShow ] = useState(true);
+    const [ codeShow, setCodeShow ] = useState(false);
     const codeFoldHandler = () => {
         setCodeShow(!codeShow);
     };

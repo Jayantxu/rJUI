@@ -8,6 +8,9 @@ const Pasteicon: React.FC<PropsWithChildren<IconProps>> = (props) => {
     const pasteIconUnitStyle = {
         'margin': '0.75rem',
     };
+    const getPasteIconStyle = (child: ReactElement) => {
+        return Object.assign({}, pasteIconUnitStyle, child.props.style);
+    };
     const clearText = (event: React.MouseEvent, child: ReactElement) => {
         event.stopPropagation();
         event.preventDefault();
@@ -50,7 +53,7 @@ const Pasteicon: React.FC<PropsWithChildren<IconProps>> = (props) => {
                 return <div className="rjui-icon-paste-unit" 
                         onMouseLeave={ () => setIsCopied(false) }
                         onClick={ (e) => clearText(e, child)}>
-                        { React.cloneElement(child, { style: pasteIconUnitStyle, className: 'rjui-icon-hover' }) }
+                        { React.cloneElement(child, { style: getPasteIconStyle(child) }) }
                         <span className="rjui-icon-desc">
                             { child.props.name }
                         </span>
@@ -59,43 +62,45 @@ const Pasteicon: React.FC<PropsWithChildren<IconProps>> = (props) => {
             <style jsx>{`
                 .rjui-icon-paste {
                     display: flex;
+                    flex-wrap: wrap;
                 }
                 .rjui-icon-paste-unit {
-                    color: #314659;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     flex-direction: column;
                     border-radius: 0.375rem;
-                    margin: 0 1rem;
-                    width: 5rem;
-                    height: calc(5rem + 5px);
+                    margin: 1rem;
+                    width: 4rem;
+                    height: calc(4rem + 5px);
                     padding-bottom: 5px;
                     position: relative;
                 }
                 .rjui-icon-paste-unit:hover {
-                    background-color: #1890ff;
+                    background-color: unset;
                     color: #fff;
                     cursor: pointer;
                 }
                 .rjui-icon-desc {
-                    font-size: 0.875rem;
+                    font-size: 0.75rem;
                 }
                 .rjui-icon-paste-unit:hover:before {
-                    width: 100%;
-                    height: 100%;
                     position: absolute;
                     content: '${isCopied ? '已复制' : '点击复制'}';
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 1;
+                    padding: 0.1rem;
+                    top: 50%;
+                    left: 50%;
                     font-size: 12px;
-                    background: #8c8c8c30;
+                    color: #fff;
+                    z-index: 1;
+                    width: 100%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    background: #9494949e;
                 }
             `}</style>
             <style global jsx>{`
-                .rjui-icon-paste-unit:hover .rjui-icon-hover {
+                .rjui-icon-paste-unit:hover .rjui-icon {
                     transition: transform .3s ease-in-out;
                     transform: scale(1.4);
                 }

@@ -59,7 +59,9 @@ export const RJUILayer: React.FC<LayerMeta> = ({ children, pageTitle }: LayerMet
                     height: 100vh;
                 }
                 .rjui-main-content {
+                    width: 100%;
                     flex-grow: 1;
+                    margin-bottom: 2rem;
                 }
             `}</style>
         </>
