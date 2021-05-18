@@ -27,24 +27,35 @@ describe('Icon', () => {
                 <Icon name="rJUI" size="30" />
             </div>
         );
-        // expect(iconWrap.childAt(1)).toBe(true);
         expect(() => iconWrap.unmount()).not.toThrow();
     });
+    it('正确渲染样式', () => {
+        const iconWrap = mount(
+            <div className="test-wrap">
+                <Icon name="rJUI" color="red" />
+                <Icon name="rJUI" rotate={90} />
+                <Icon name="rJUI" spin />
+            </div>
+        );
+        expect(iconWrap.find('.rjui-icon').at(2).hasClass('rjui-icon-spin')).toBe(true);
+        expect(iconWrap).toMatchSnapshot();
+    });
+    it('正确渲染svg宽高', () => {
+        const iconWrap = mount(<Icon width="40" height="40"/>);
+        expect(iconWrap.props().width).toEqual('40');
+        expect(iconWrap.props().height).toEqual('40');
+    });
     
-    //   it('should stacked when avatars are in a group', () => {
-    //     const group = render(
-    //       <Avatar.Group>
-    //         <Avatar />
-    //         <Avatar />
-    //       </Avatar.Group>,
-    //     )
-    //     expect(group).toMatchSnapshot()
-    //   })
-    
-    //   it('should show count in group', () => {
-    //     const count = 20
-    //     const group = shallow(<Avatar.Group count={count} />)
-    //     const text = group.find('.count').text()
-    //     expect(text).toContain(count)
-    //   })
+    it('正确触发事件', () => {
+        const testState = { width: 10, height: 20 };
+        const iconWrap = mount(
+            <Icon width={testState.width} height={testState.height} 
+                onClick={() => {
+                    testState.width = 20;
+                }}/>
+        );
+        expect(iconWrap.props().width).toEqual(10);
+        iconWrap.find('.rjui-icon svg').simulate('click');
+        expect(testState.width).toEqual(20);
+    });
 });

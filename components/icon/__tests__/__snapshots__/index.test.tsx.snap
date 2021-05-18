@@ -93,3 +93,5 @@ initialize {
   },
 }
 `;
+
+exports[`Icon 正确渲染样式 1`] = `ReactWrapper {}`;
