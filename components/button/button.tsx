@@ -1,5 +1,5 @@
 import React from 'react';
-const Button = () => {
+const Button: React.FC = () => {
     return (
         <button>我是按钮</button>
     );

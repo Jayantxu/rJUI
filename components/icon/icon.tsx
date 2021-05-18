@@ -1,18 +1,17 @@
 import React from 'react';
-// # https://webpack.js.org/guides/dependency-management/ & @types/webpack-env
-const iconfiles = require.context("assets/svg/", true, /\.svg$/);
-iconfiles.keys().forEach(iconfiles);
 
+import { requestSvg } from './requestMain';
+requestSvg();
 export interface IconProps extends React.SVGAttributes<SVGElement> {
-    className: string
-    name: string
-    size: string | number
-    rotate: number
-    spin: boolean
-    style: React.CSSProperties
-    width: string | number,
-    height: string | number,
-    color: string
+    className?: string
+    name?: string
+    size?: string | number
+    rotate?: number
+    spin?: boolean
+    style?: React.CSSProperties
+    width?: string | number,
+    height?: string | number,
+    color?: string
 }
 
 const Icon: React.FC<IconProps> = (props) => {
@@ -26,7 +25,7 @@ const Icon: React.FC<IconProps> = (props) => {
 
     return (
         <span role="img" aria-label={props.name} 
-            className={`rjui-icon  ${props.spin ? 'rjui-icon-spin' : ''}`}
+            className={`rjui-icon ${props.spin ? 'rjui-icon-spin' : ''} ${props.className}`}
             style={props.style}
         >
             <svg width={props.width ? props.width : "1em"} 

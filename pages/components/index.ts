@@ -1,3 +1,3 @@
 import redirect from 'lib/redirect';
 
-export default redirect('/components/button');
+export default redirect('/components/icon');
